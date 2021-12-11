@@ -8,7 +8,7 @@ require 'sinatra/activerecord/rake'
 
 #RuboCop::RakeTask.new
 
-task default: :rubocop
+#task default: :rubocop
 
 task :environment do
     require_relative './config/environment'

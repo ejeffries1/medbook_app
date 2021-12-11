@@ -57,7 +57,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  activerecord (= 5.2)
+  activerecord
   bcrypt
   medbook_app!
   rake (~> 13.0)
