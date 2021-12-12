@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(version: 2021_12_11_050752) do
     t.integer "count"
   end
 
-  create_table "patients", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "email"
     t.string "password_digest"
   end
 
