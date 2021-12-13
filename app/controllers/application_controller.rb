@@ -22,18 +22,34 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/signup' do
-        if !params.empty?
+        if params.empty?
             redirect to '/signup'
         else
-            @user = user.create(params)
+            @user = User.create(params)
             session[:user_id] = @user.id
             redirect to '/medications'
         end
     end
 
+    get '/login' do
+       if logged_in?
+        redirect '/medications'
+       else
+        erb :'/patient/login'
+       end
+    end
+
+    post '/login' do
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+          end
+          redirect '/medications'
+    end
 
 
-    
+
+
 
     helpers do
         def logged_in?
