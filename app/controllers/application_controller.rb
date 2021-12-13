@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/signup' do
-        if params.empty?
+        if !params.values.all? {|v| !v.blank?}
             redirect to '/signup'
         else
             @user = User.create(params)
@@ -57,7 +57,7 @@ class ApplicationController < Sinatra::Base
         end
 
         def current_user
-            Patient.find(session[:user_id])
+            User.find(session[:user_id])
         end
     end
 end
