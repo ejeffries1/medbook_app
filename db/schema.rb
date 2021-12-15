@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_12_11_050752) do
     t.integer "strength"
     t.string "side_effects"
     t.integer "count"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,9 @@
+<h1>Welcome, <%=current_user.username%></h1>
+
+<ul>
+    <% current_user.medications.each do |med|%>
+        <li><%=med.name%></li>
+    <% end %>
+</ul>
+
+<a href="/medications/new">Add New Medication</a>
