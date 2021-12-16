@@ -28,13 +28,29 @@ class MedicationController < ApplicationController
         end
     end
 
-    get '/medication/:id' do
+    get '/medications/:id' do
         if logged_in?
             @medication = Medication.find_by(params[:id])
             erb :'/medication/show'
         else
             redirect '/login'
         end
+    end
+
+    get '/medications/:id/edit' do
+        if logged_in?
+            @medication = Medication.find_by(id: params[:id])
+            erb :'/medication/edit'
+        else
+            redirect '/login'
+        end
+    end
+
+    patch '/medications/:id' do
+        @medication = Medication.find_by_id(params[:id])
+        @medication = params[:content]
+        @medication.save
+        redirect to "/medications/#{@medication.id}"
     end
     
 end

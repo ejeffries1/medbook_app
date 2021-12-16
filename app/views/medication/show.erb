@@ -2,8 +2,10 @@
 
 <h1>Here are your medications</h1>
 
-<%@medication.each do |meds|%>
-    <li><%=meds.medication%> <%=meds.strength%> <label>Quantity:</label> <%=meds.count%> <label>Side Effect</label><%=meds.side_effects%><li>
+<form>
+<%Medication.all.each do |meds|%>
+    <li><%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity:</label> <<%=meds.quantity%> <label>Side Effect</label><%=meds.side_effects%><li>
 <% end %>
+</form>
 
-<a href="/medications/new">Add Med</a>
+<a href="/medications/new">Add Med</a> <a href="/medications/:id/edit">Edit Med</a>
