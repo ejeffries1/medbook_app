@@ -1,0 +1,9 @@
+<h1>Welcome <%=current_user.username%></h1>
+
+<h1>Here are your medications</h1>
+
+<%@medication.each do |meds|%>
+    <li><%=meds.medication%> <%=meds.strength%> <label>Quantity:</label> <%=meds.count%> <label>Side Effect</label><%=meds.side_effects%><li>
+<% end %>
+
+<a href="/medications/new">Add Med</a>

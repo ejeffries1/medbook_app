@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_12_11_050752) do
 
   create_table "medications", force: :cascade do |t|
-    t.string "medication"
+    t.string "name"
     t.integer "strength"
+    t.string "unit"
     t.string "side_effects"
-    t.integer "count"
+    t.integer "quantity"
     t.integer "user_id"
   end
 

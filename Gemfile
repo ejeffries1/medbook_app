@@ -8,6 +8,7 @@ gemspec
 gem 'sinatra'
 gem 'thin'
 gem 'require_all'
+gem 'pry'
 #gem 'activerecord', '5.2'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'

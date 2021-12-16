@@ -1,0 +1,14 @@
+<h3>Add Medication</h3>
+
+<form method="POST" action="/medications">
+    <label>Drug Name:</label> <input type="text" name="name"> <label>Stength:</label> <input type="text" name="strength"> 
+    <select id="unit" name="unit">
+        <option value="mg">mg</option>
+        <option value="mcg">mcg</option>
+        <option value="meq">meq</option>
+  </select>
+    <br><br>
+    <label>Quantity: </label> <input type="number" name="quantity" min="0" max="999"><br>
+    <label>Side Effects: </label> <input type="text" name="side_effects">
+    <input type="submit" value="Submit">
+</form>

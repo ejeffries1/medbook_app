@@ -19,14 +19,19 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     bcrypt (3.1.16)
+    coderay (1.1.3)
     concurrent-ruby (1.1.9)
     daemons (1.4.1)
     eventmachine (1.2.7)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    method_source (1.0.0)
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -60,6 +65,7 @@ DEPENDENCIES
   activerecord
   bcrypt
   medbook_app!
+  pry
   rake (~> 13.0)
   require_all
   shotgun

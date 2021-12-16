@@ -4,7 +4,7 @@ class UserController < ApplicationController
         if logged_in?
           redirect to '/medications'
         else
-          erb :'/users/create_user'
+          erb :'/patient/create_user'
         end
     end
 
@@ -18,11 +18,11 @@ class UserController < ApplicationController
         end
     end
 
-    get 'login' do
+    get '/login' do
         if logged_in?
             redirect '/medications'
         else
-            redirect '/login'
+            erb :'patient/login'
         end
     end
 
@@ -32,14 +32,14 @@ class UserController < ApplicationController
             session[:user_id] = @user.id
             redirect '/medications'
         else
-            redirect '/index'
+            redirect '/'
         end
     end
 
     get '/logout' do
         if logged_in?
-            sessions.clear
-            redirect '/index'
+            session.clear
+            redirect '/'
         end
     end
 end
