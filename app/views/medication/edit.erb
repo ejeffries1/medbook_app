@@ -1,6 +1,6 @@
+<h1>Edit</h1>
 
-
-<form method="POST" action="/medications/<%=@medication.id%>">
+<form method="POST" action="/medications/<%=current_user.id%>">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <label>Drug Name:</label> <input type="text" name="name"> <label>Stength:</label> <input type="text" name="strength"> 
     <select id="unit" name="unit">
@@ -12,4 +12,4 @@
     <label>Quantity: </label> <input type="number" name="quantity" min="0" max="999"><br>
     <label>Side Effects: </label> <input type="text" name="side_effects">
     <input type="submit" value="Submit Changes">
-<form>
+</form>

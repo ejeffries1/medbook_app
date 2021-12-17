@@ -47,10 +47,18 @@ class MedicationController < ApplicationController
     end
 
     patch '/medications/:id' do
-        @medication = Medication.find_by_id(params[:id])
-        @medication = params[:content]
+        @medication = Medication.find_by(params[:id])
+        @medication.name = params[:name]
+        @medication.strength = params[:strength]
+        @medication.unit = params[:unit]
+        @medication.quantity = params[:quantity]
         @medication.save
-        redirect to "/medications/#{@medication.id}"
+        redirect to "/medications/#{current_user.id}"
+    end
+
+    post '/medications/:id/delete' do
+        @medication = Medication.find_by(params[:id])
+        @medication.destroy
     end
     
 end
