@@ -2,11 +2,11 @@
 
 <h1>Here are your medications</h1>
 
-<form method="post" action="/medication/<%@medication.id%>">
-<input id="hidden" type="hidden" name="_method" value="patch">
-<%Medication.all.each do |meds|%>
-    <li><input type="checkbox"  id="<%=meds.id%>"> <%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity: <input type="number" name="<%=meds.quantity%>" min="0" max="999"></label> <label>Side Effect:</label> <%=meds.side_effects%> <a href="/medications/<%=meds.id%>/edit">Edit</a></li>
+<form method="POST" action="/medications/<%=current_user.id%>">
+    <%current_user.medications.each do |meds|%>
+        <li><input type="checkbox"  id="<%=meds.id%>"> <label>Drug:</label> <%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity: <input type="number" name="quatity" id="<%=meds.id%>" min="0" max="999"></label> <label>Side Effect:</label> <%=meds.side_effects%> <a href="/medications/<%=meds.id%>/edit">Edit</a></li>
     <%end%>
+    <input type="submit" value="Update">
 </form>
 
-<a href="/medication/new">Add Med</a> <a href="/medications/:id/delete">Delete</a>
+<a href="/medications/new">Add Med</a> <a href="/medications/:id/delete">Delete</a>

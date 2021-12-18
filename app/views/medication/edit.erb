@@ -1,7 +1,7 @@
 <h1>Edit</h1>
 
 <form method="POST" action="/medications/<%=current_user.id%>">
-    <input id="hidden" type="hidden" name="_method" value="patch">
+    
     <label>Drug Name:</label> <input type="text" name="name"> <label>Stength:</label> <input type="text" name="strength"> 
     <select id="unit" name="unit">
         <option value="mg">mg</option>

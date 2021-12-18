@@ -2,6 +2,8 @@ class MedicationController < ApplicationController
 
     get '/medications' do
         if logged_in?
+            @user = User.find_by(id: session[:user_id])
+            @medications = Medication.all
             erb :'/medication/show'
         else
             redirect '/login'
@@ -10,6 +12,7 @@ class MedicationController < ApplicationController
 
     get '/medications/new' do
         if logged_in?
+            @user = current_user
             erb :'/medication/add_med'
         else
             redirect '/login'
@@ -17,8 +20,7 @@ class MedicationController < ApplicationController
     end
 
     post '/medications' do
-        if !params[:name] == "" || !params[:strength] == "" || !params[:count] == ""
-            binding.pry
+        if params[:name] = "" || params[:strength] = "" || params[:count] = ""
             redirect '/medications/new'
         else
             @medication = Medication.create(params)
@@ -46,14 +48,12 @@ class MedicationController < ApplicationController
         end
     end
 
-    patch '/medications/:id' do
+    patch "/medications/:id" do
         @medication = Medication.find_by(params[:id])
-        @medication.name = params[:name]
-        @medication.strength = params[:strength]
-        @medication.unit = params[:unit]
-        @medication.quantity = params[:quantity]
-        @medication.save
-        redirect to "/medications/#{current_user.id}"
+
+        @medication.update(params.select{|m| m=="name" || m=="strength" || m=="quantity"})
+            #binding.pry
+        redirect to "/medications/#{@medication.id}"
     end
 
     post '/medications/:id/delete' do
