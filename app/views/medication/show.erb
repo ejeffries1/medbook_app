@@ -1,10 +1,11 @@
-<h1>Welcome <%=current_user.username%></h1>
+<h1>Welcome, <%=current_user.username%>!</h1>
 
 <h1>Here are your medications</h1>
 
-<form method="POST" action="/medications/<%=current_user.id%>">
+<form method="POST" action="/medications/<%=@medication.id%>">
+<input id="hidden" type="hidden" name="_method" value="patch"/>
     <%current_user.medications.each do |meds|%>
-        <li><input type="checkbox"  id="<%=meds.id%>"> <label>Drug:</label> <%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity: <input type="number" name="quatity" id="<%=meds.id%>" min="0" max="999"></label> <label>Side Effect:</label> <%=meds.side_effects%> <a href="/medications/<%=meds.id%>/edit">Edit</a></li>
+        <li><input type="checkbox"  id="<%=meds.id%>"> <label>Drug:</label> <%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity: <input type="number" name="quantity" id="<%=meds.id%>" min="0" max="999" value="<%=meds.quantity%>"></label> <label>Side Effect:</label> <%=meds.side_effects%> <a href="/medications/<%=meds.id%>/edit">Edit</a></li>
     <%end%>
     <input type="submit" value="Update">
 </form>

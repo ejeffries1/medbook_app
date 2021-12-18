@@ -20,7 +20,7 @@ class MedicationController < ApplicationController
     end
 
     post '/medications' do
-        if params[:name] = "" || params[:strength] = "" || params[:count] = ""
+        if !params[:name] = "" || !params[:strength] = "" || !params[:count] = ""
             redirect '/medications/new'
         else
             @medication = Medication.create(params)
@@ -49,11 +49,17 @@ class MedicationController < ApplicationController
     end
 
     patch "/medications/:id" do
-        @medication = Medication.find_by(params[:id])
-
-        @medication.update(params.select{|m| m=="name" || m=="strength" || m=="quantity"})
-            #binding.pry
-        redirect to "/medications/#{@medication.id}"
+        if params == ""
+            redirect to "/medications/#{params[:id]}/edit"
+        else
+            @medication = Medication.find_by_id(params[:id])
+            @medication.name = params[:name]
+            @medication.strength = params[:strength]
+            @medication.unit = params[:unit]
+            @medication.side_effects = params[:side_effects]
+            @medication.save
+            redirect to "/medications/#{@medication.id}"
+        end
     end
 
     post '/medications/:id/delete' do
