@@ -1,13 +1,26 @@
 <h1>Welcome, <%=current_user.username%>!</h1>
 
 <h1>Here are your medications</h1>
-
-<form method="POST" action="/medications/<%=@medication.id%>">
-<input id="hidden" type="hidden" name="_method" value="patch"/>
+<table>
+<tbody>
+    <tr>
+        <th>Delete</th>
+        <th>Drug</th>
+        <th>Strength</th>
+        <th>Quantity</th>
+        <th>Side Effect</th>
+        <th>Edit</th>
+    </tr>
     <%current_user.medications.each do |meds|%>
-        <li><input type="checkbox"  id="<%=meds.id%>"> <label>Drug:</label> <%=meds.name%> <%=meds.strength%><%=meds.unit%> <label>Quantity: <input type="number" name="quantity" id="<%=meds.id%>" min="0" max="999" value="<%=meds.quantity%>"></label> <label>Side Effect:</label> <%=meds.side_effects%> <a href="/medications/<%=meds.id%>/edit">Edit</a></li>
+    <tr>
+        <td><input type="checkbox"  id="<%=meds.id%>"></td>
+        <td><%=meds.name%></td> 
+        <td><%=meds.strength%><%=meds.unit%></td>
+        <td><%=meds.quantity%></td>
+        <td><%=meds.side_effects%></td> 
+        <td><a href="/medications/<%=meds.id%>/edit">Edit</a></td>
     <%end%>
-    <input type="submit" value="Update">
-</form>
-
+    </tr>
+    </tbody>
+</table>
 <a href="/medications/new">Add Med</a> <a href="/medications/:id/delete">Delete</a>

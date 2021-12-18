@@ -56,6 +56,7 @@ class MedicationController < ApplicationController
             @medication.name = params[:name]
             @medication.strength = params[:strength]
             @medication.unit = params[:unit]
+            @medication.quantity = params[:quantity]
             @medication.side_effects = params[:side_effects]
             @medication.save
             redirect to "/medications/#{@medication.id}"

@@ -9,7 +9,7 @@
         <option value="meq">meq</option>
   </select>
     <br><br>
-    <label>Quantity: </label> <input type="number" name="quantity" min="0" max="999"><br>
+    <label>Quantity: </label> <input type="number" name="quantity" min="0" max="999" value="<%=@medication.quantity%>"><br>
     <label>Side Effects: </label> <input type="text" name="side_effects" placeholder="<%=@medication.side_effects%>">
     <input type="submit" value="Submit Changes">
 </form>
