@@ -1,15 +1,24 @@
+<head>
+    <style type="text/css">form{border: 3px solid black; margin-right: 800;
+margin-left: 100;}</style>
+</head>
+
 <h1>Edit</h1>
 
 <form method="POST" action="/medications/<%=@medication.id%>">
     <input id="hidden" type="hidden" name="_method" value="patch"/>
-    <label>Drug Name:</label> <input type="text" name="name" placeholder="<%=@medication.name%>" value="<%=@medication.name%>"> <label>Stength:</label> <input type="text" name="strength" placeholder="<%=@medication.strength%>"> 
-    <select id="unit" name="unit">
+    <label>Drug Name:</label> <input type="text" name="name" placeholder="<%=@medication.name%>" value="<%=@medication.name%>"><br><br>
+    <label>Stength:</label> <input type="text" name="strength" placeholder="<%=@medication.strength%>" value="<%=@medication.strength%>"> 
+    <select id="unit" name="unit" placeholder="<%=@medication.unit%>" value="<%=@medication.unit%>">
+        <option value="" disable selected>Select Unit</option>
         <option value="mg">mg</option>
         <option value="mcg">mcg</option>
         <option value="meq">meq</option>
   </select>
     <br><br>
-    <label>Quantity: </label> <input type="number" name="quantity" min="0" max="999" value="<%=@medication.quantity%>"><br>
-    <label>Side Effects: </label> <input type="text" name="side_effects" placeholder="<%=@medication.side_effects%>">
+    <label id="quantity">Quantity: </label><input type="number" name="quantity" min="0" max="999" value="<%=@medication.quantity%>"><br><br>
+    <label>Side Effects: </label> <input type="text" name="side_effects" placeholder="<%=@medication.side_effects%>" value="<%=@medication.side_effects%>">
     <input type="submit" value="Submit Changes">
 </form>
+
+    <button><a href="/medications">Home</a></button> <button><a href="/logout">Log Out</a></button>

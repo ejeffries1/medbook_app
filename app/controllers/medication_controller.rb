@@ -26,7 +26,6 @@ class MedicationController < ApplicationController
             @medication = Medication.find_or_create_by(params)
             current_user.medications << @medication
             current_user.save
-            binding.pry
             redirect "/medications/#{@medication.id}"
         end
     end
@@ -60,7 +59,7 @@ class MedicationController < ApplicationController
             @medication.quantity = params[:quantity]
             @medication.side_effects = params[:side_effects]
             @medication.save
-            redirect to "/medications/#{@medication.id}"
+            redirect to "/medications"
         end
     end
 
