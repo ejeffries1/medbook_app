@@ -1,6 +1,8 @@
 <h1>Welcome, <%=current_user.username%>!</h1>
 
 <h1>Here are your medications</h1>
+<form method="POST" action="/medications/:id/delete">
+
 <table>
 <tbody>
     <tr>
@@ -13,9 +15,9 @@
     </tr>
     <%current_user.medications.each do |meds|%>
     <tr>
-        <td><input type="checkbox"  id="<%=meds.id%>"></td>
+        <td><input type="checkbox" name="meds_ids[]" value="<%=meds.id%>" id="<%=meds.id%>"></td>
         <td><%=meds.name%></td> 
-        <td><%=meds.strength%><%=meds.unit%></td>
+        <td><%=meds.strength%></td>
         <td><%=meds.quantity%></td>
         <td><%=meds.side_effects%></td> 
         <td><a href="/medications/<%=meds.id%>/edit">Edit</a></td>
@@ -23,4 +25,5 @@
     </tr>
     </tbody>
 </table>
-<a href="/medications/new">Add Med</a> <a href="/medications/:id/delete">Delete</a>
+<a href="/medications/new">Add Med</a> <input type="submit" value="Delete Selected">
+</form>

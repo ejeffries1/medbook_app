@@ -20,12 +20,13 @@ class MedicationController < ApplicationController
     end
 
     post '/medications' do
-        if !params[:name] = "" || !params[:strength] = "" || !params[:count] = ""
+        if !params[:name] == "" || !params[:strength] == "" || !params[:quantity] == ""
             redirect '/medications/new'
         else
             @medication = Medication.create(params)
             current_user.medications << @medication
             current_user.save
+            binding.pry
             redirect "/medications/#{@medication.id}"
         end
     end
@@ -64,8 +65,10 @@ class MedicationController < ApplicationController
     end
 
     post '/medications/:id/delete' do
-        @medication = Medication.find_by(params[:id])
-        @medication.destroy
+        params[:meds_ids].each do |id|
+            Medication.find(id.to_i).destroy
+          end
+        redirect '/medications'
     end
     
 end
