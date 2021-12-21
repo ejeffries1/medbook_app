@@ -26,7 +26,7 @@ class MedicationController < ApplicationController
             @medication = Medication.find_or_create_by(params)
             current_user.medications << @medication
             current_user.save
-            redirect "/medications/#{@medication.id}"
+            redirect "/medications"
         end
     end
 
