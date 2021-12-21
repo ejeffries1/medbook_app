@@ -23,7 +23,7 @@ class MedicationController < ApplicationController
         if !params[:name] == "" || !params[:strength] == "" || !params[:quantity] == ""
             redirect '/medications/new'
         else
-            @medication = Medication.create(params)
+            @medication = Medication.find_or_create_by(params)
             current_user.medications << @medication
             current_user.save
             binding.pry
