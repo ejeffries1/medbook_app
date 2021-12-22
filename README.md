@@ -1,12 +1,8 @@
 # MedbookApp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/medbook_app`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the MedBook App. To run the program clone the app run bundle install then type rake db:migrate then shotgun.
 
 ## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'medbook_app'
@@ -22,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The purpose of this gem in for the user to keep inventory of the medication they are on.
 
 ## Development
 
@@ -32,11 +28,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
+Welcome to the MedBook app, and thank you for taking the time to contribute.
+
+To make changes fork the repository.
+
+To make a contribution create a pull request
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/medbook_app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/<github username>/medbook_app/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+https://github.com/ejeffries1/medbook_app/blob/master/LICENSE.txt
 
 ## Code of Conduct
 
